@@ -47,9 +47,9 @@ const AuthInfo = requireAuthentication(App)
 // store.dispatch(addExpense({ description: 'Gas bill' }));
 // store.dispatch(setTextFilter('gas'));
 
-const highPrice = store.dispatch(addExpense({ amount: 300, description: 'high Price', createdAt: '23-Feb-2018'}));
-store.dispatch(addExpense({ amount: 500, description: 'Very High Price .. My GOSH', }));
-store.dispatch(editExpense(highPrice.expense.id, { description: 'low Price '}))
+// const highPrice = store.dispatch(addExpense({ amount: 300, description: 'high Price', createdAt: '23-Feb-2018'}));
+// store.dispatch(addExpense({ amount: 500, description: 'Very High Price .. My GOSH', }));
+// store.dispatch(editExpense(highPrice.expense.id, { description: 'low Price '}))
 // store.dispatch(sortByAmount());
 // store.dispatch(setTextFilter('lo'))
 

@@ -59,7 +59,8 @@ export default class AddExpenseForm extends Component {
                 description: this.state.description,
                 amount: parseFloat(this.state.amount, 10),
                 note: this.state.note,
-                createdAt: this.state.createdAt.format('DD-MM-YY ddd hh-mma')
+                //DD-MM-YY ddd hh-mma  it doesnt work with filters :( 
+                createdAt: this.state.createdAt.format('DD-MMM-YY')
             })
         }
     }
