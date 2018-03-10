@@ -4,8 +4,8 @@ import { SingleDatePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
 
-const now = moment();
-        console.log(now.format('hh:mma'))
+// const now = moment();
+//         console.log(now.format('hh:mma'))
 
 export default class AddExpenseForm extends Component {
     constructor(props) {
@@ -59,8 +59,8 @@ export default class AddExpenseForm extends Component {
                 description: this.state.description,
                 amount: parseFloat(this.state.amount, 10),
                 note: this.state.note,
-                //DD-MM-YY ddd hh-mma  it doesnt work with filters :( 
-                createdAt: this.state.createdAt.format('DD-MMM-YY')
+                //DD-MM-YY ddd hh-mma  it doesnt work with filters :( will add all this when displaying.
+                createdAt: this.state.createdAt.valueOf()
             })
         }
     }

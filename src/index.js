@@ -4,23 +4,30 @@ import { Provider } from 'react-redux';
 // import App from './App';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import { addExpense, editExpense } from './actions/expenses';
+import { addExpense, editExpense,startSetExpenses } from './actions/expenses';
 import { setTextFilter, sortByAmount } from './actions/filters';
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
-
+import './firebase/firebase';
 const store = configureStore();
 
-const App = (props) => {
+export default class App extends Component {
+    componentDidMount() {
+        store.dispatch(startSetExpenses()).then(() => {
+            console.log(store.getState())
+        })
+    }
+    render(props) {
         return(
             <Provider store={store}>
             <div>
                 <AppRouter />
-                <p>this is HOC:  {props.info}</p>
+                {/* <p>this is HOC:  {props.info}</p> */}
             </div>
             </Provider>
         )
+    }
 };
 // only shows admin warning 
 const withAdminWarning = (WrappedComponent) => {
@@ -58,10 +65,16 @@ const AuthInfo = requireAuthentication(App)
 // }, 2000)
 
 const state = store.getState();
+
 const visibleExpenses = getVisibleExpenses(state.expenses, state.filters);
 console.log(visibleExpenses);
 
 // ReactDOM.render(<Admininfo isActive={true} info={"this is me"}/>, document.getElementById('root'));
-ReactDOM.render(<AuthInfo isAdmin={true} info={"from PROPS through HOC"}/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('root'));
+// store.dispatch(startSetExpenses()).then(() => {
+//     ReactDOM.render(<App/>, document.getElementById('root'));
+    
+// });
 
+// ReactDOM.render(<AuthInfo isAdmin={true} info={"from PROPS through HOC"}/>, document.getElementById('root'));
 

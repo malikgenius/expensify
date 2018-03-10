@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
+import numeral from 'numeral';
+import './numeralLocale';
 
-const ExpenseListItem = ({ dispatch,description, createdAt, amount, note, id}) => (
+const ExpenseListItem = ({ description, createdAt, amount, note, id}) => (
     <div>
         <Link to={`/edit/${id}`}>
         <h3>
@@ -9,7 +12,9 @@ const ExpenseListItem = ({ dispatch,description, createdAt, amount, note, id}) =
         </h3>
         </Link>
         <p>
-            {`amount: ${amount}RO`}  {`Date: ${createdAt}`}
+            {numeral(amount).format('$0,0.00')}
+            -
+            {`Date: ${moment(createdAt).format('Do MMMM YYYY hh:mma')}`}
         </p>
         <p>{note}</p>
         

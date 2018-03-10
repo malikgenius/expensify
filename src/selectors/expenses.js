@@ -3,7 +3,7 @@ import moment from 'moment';
 // export default (expenses, { text, sortBy, startDate, endDate }) => {
 export default (expenses, filters) => {
   return expenses.filter((expense) => {
-    const createdAtMoment = moment(expense.createdAt).format('DD-MMM-YY');
+    const createdAtMoment = moment(expense.createdAt);
     const startDateMatch = filters.startDate ? filters.startDate.isSameOrBefore(createdAtMoment, 'day'): true;
     const endDateMatch = filters.endDate ? filters.endDate.isSameOrAfter(createdAtMoment, 'day'): true;
     const textMatch = expense.description.toLowerCase().includes(filters.text.toLowerCase());
