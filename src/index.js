@@ -42,19 +42,19 @@ ReactDOM.render(<p> loading ... </p>, document.getElementById('root'));
 firebase.auth().onAuthStateChanged((user) => {
     if(user != null) {
         store.dispatch(login(user.uid));
-        console.log(user.uid)
+        // console.log(user.uid)
         store.dispatch(startSetExpenses()).then(() => {
         isRendered()
         if(history.location.pathname === '/') {
             history.push('/dashboard');
         }
         })
-        console.log(`Logged in`)
+        // console.log(`Logged in`)
     } else {
         isRendered();
         store.dispatch(logout());
         history.push('/');
-        console.log('Logged out')
+        // console.log('Logged out')
     }
 });
 

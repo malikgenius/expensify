@@ -20,7 +20,7 @@ export default (state = expensesReducerDefaultState, action) => {
           };
         } else {
           return expense;
-        };
+        }
       });
     case 'SET_EXPENSES':
       return (
