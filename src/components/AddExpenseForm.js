@@ -55,7 +55,7 @@ export default class AddExpenseForm extends Component {
             this.setState(() => ({ error: 'Please add Description & Amount'}))
         } else {
             this.setState(() => ({ error: ''}))
-            this.props.onFormSubmit({
+            this.props.onSubmit({
                 description: this.state.description,
                 amount: parseFloat(this.state.amount, 10),
                 note: this.state.note,

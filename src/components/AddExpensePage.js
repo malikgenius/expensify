@@ -4,17 +4,25 @@ import { startAddExpense } from '../actions/expenses';
 import AddExpenseForm from './AddExpenseForm';
 
 
-const AddExpensePage = (props) => (
-  <div>
-    <h2>Add Expense </h2>
-    <AddExpenseForm 
-      onFormSubmit={(expense) => {
-        props.dispatch(startAddExpense(expense))
-        props.history.push('/dashboard')
-      
-    }}/>
-  </div>
-);
+export class AddExpensePage extends React.Component {
+  onSubmit = (expense) => {
+    this.props.startAddExpense(expense);
+    this.props.history.push('/');
+  }
+  render() {
+    return (
+      <div>
+        <h2>Add Expense </h2>
+        <AddExpenseForm 
+          onSubmit={this.onSubmit}/>
+      </div>
+    )
+  }
+}
+  
+const mapDispatchToProps = (dispatch, getState) => ({
+  startAddExpense: (expense) => dispatch(startAddExpense(expense))
+})
 
 
-export default connect()(AddExpensePage);
+export default connect(undefined, mapDispatchToProps)(AddExpensePage);

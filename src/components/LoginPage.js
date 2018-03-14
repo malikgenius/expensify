@@ -5,9 +5,9 @@ import { startLogin } from '../actions/auth';
 
 export const LoginPage = ({startLogin}) => {
     return (
-        <React.Fragment>
+        <div>
             <button onClick={startLogin}>Login with Google</button>
-        </React.Fragment>
+        </div>
     )
 };
 

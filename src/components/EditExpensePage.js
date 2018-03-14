@@ -5,12 +5,12 @@ import { startEditExpense } from '../actions/expenses';
 import { startRemoveExpense} from '../actions/expenses';
 
 const EditExpensePage = (props) => {
-  // console.log(props);
+
   return (
     <div>
       <AddExpenseForm 
         expense={props.expense}
-        onFormSubmit={(expense) => {
+        onSubmit={(expense) => {
           props.dispatch(startEditExpense(props.expense.id,expense))
           props.history.push('/dashboard')
         }}
