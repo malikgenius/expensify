@@ -5,7 +5,7 @@ import Header from '../components/Header';
 
 
 export const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => {
-    console.log(isAuthenticated)
+    // console.log(isAuthenticated)
     return (
         <Route {...rest} component={(props) => (
             isAuthenticated ? (
