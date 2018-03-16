@@ -6,7 +6,7 @@ import ExpensesSummary from './ExpensesSummary';
 // "start": "node server/server.js",
 
 const ExpenseDashboardPage = () => (
-  <div>
+  <div >
     <ExpensesSummary/>
     <ExpenseListFilters />
     <ExpenseList />

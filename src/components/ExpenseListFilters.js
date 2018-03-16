@@ -19,23 +19,30 @@ class ExpenseListFilters extends Component {
       }
     render() {
         return (
-            <div>
-                <input type="text" value={this.props.filters.text} onChange={(e) => {
-                    this.props.dispatch(setTextFilter(e.target.value))
-                }}/> 
-                <select 
-                value={this.props.filters.sortBy}
-                onChange={(e) => {
-                        if( e.target.value === 'date') {
-                            this.props.dispatch(sortByDate())
-                        } else if (e.target.value === 'amount')
-                            this.props.dispatch(sortByAmount())
-                    }
-                }>
-                    <option value="date">date</option>
-                    <option value="amount">amount</option>
-                    
-                </select>
+            <div className="content-container">
+                <div className="input-group">
+                    <div className="input-group__item">
+                        <input className="text-input" type="text" placeholder="search expense" value={this.props.filters.text} onChange={(e) => {
+                            this.props.dispatch(setTextFilter(e.target.value))
+                        }}/> 
+                    </div>
+                    <div className="input-group__item">
+                        <select 
+                            className="select"
+                            value={this.props.filters.sortBy}
+                            onChange={(e) => {
+                                    if( e.target.value === 'date') {
+                                        this.props.dispatch(sortByDate())
+                                    } else if (e.target.value === 'amount')
+                                        this.props.dispatch(sortByAmount())
+                                }
+                        }>
+                            <option value="date">Date</option>
+                            <option value="amount">Amount</option>
+                            
+                        </select>
+                    </div>
+                <div className="input-group__item">
                 <DateRangePicker
                         startDateId={uuid()}
                         endDateId={uuid()}
@@ -48,6 +55,8 @@ class ExpenseListFilters extends Component {
                         numberOfMonths={1}
                         isOutsideRange={() => false}
                 />
+                </div>
+                </div>
             </div>
         )
     }

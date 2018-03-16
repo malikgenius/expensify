@@ -68,36 +68,42 @@ export default class AddExpenseForm extends Component {
     render() {
         
         return(
-            <div>
-                {!this.state.description || !this.state.amount ? this.state.error : ''}
-                <form onSubmit={this.onFormSubmit}>
-                    <input 
-                        type="text" autoFocus placeholder="description here"
-                        onChange={this.onDescriptionChange}
-                        value={this.state.description}
-                    />
-                    <input type="text" placeholder="amount"
-                        onChange={this.onAmountChange}
-                        value={this.state.amount}
-                    />
-                    <SingleDatePicker 
-                        date={this.state.createdAt}
-                        onDateChange={this.onDateChange}
-                        focused={this.state.focused}
-                        onFocusChange={this.onFocusChanged}
-                        numberOfMonths={1}
-                        isOutsideRange={((day) => false)}
-                    />
-                    <br></br>
-                    <textarea 
-                        placeholder="your details here"
-                        onChange={this.onNoteChanged}
-                    >
-                    </textarea>
-                    <br></br>
-                    <button>AddExpense</button>
-                </form>
-            </div>
+            
+            <form className="form" onSubmit={this.onFormSubmit}>
+                {!this.state.description || !this.state.amount ? <p className="form__error">{this.state.error}</p> : ''}
+                <input 
+                    className="text-input"
+                    type="text" autoFocus placeholder="description here"
+                    onChange={this.onDescriptionChange}
+                    value={this.state.description}
+                />
+                
+                <input 
+                    className="text-input"
+                    type="text" placeholder="amount"
+                    onChange={this.onAmountChange}
+                    value={this.state.amount}
+                />
+                <SingleDatePicker 
+                    date={this.state.createdAt}
+                    onDateChange={this.onDateChange}
+                    focused={this.state.focused}
+                    onFocusChange={this.onFocusChanged}
+                    numberOfMonths={1}
+                    isOutsideRange={((day) => false)}
+                />
+                <textarea 
+                    className="text-area"
+                    placeholder="Add a note for your expense (optional)"
+                    onChange={this.onNoteChanged}
+                >
+                </textarea>
+                <div>
+                     <button className="button">Save Expense</button>
+
+                </div>
+            </form>
+        
         )
     }
 }  

@@ -9,6 +9,8 @@ import { login, logout } from './actions/auth';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import { firebase } from './firebase/firebase';
+import LoadingPage from './components/LoadingPage'
+
 const store = configureStore();
 
 export default class App extends Component {
@@ -36,7 +38,7 @@ const isRendered = () => {
         hasRendered = true;
     }
 }
-ReactDOM.render(<p> loading ... </p>, document.getElementById('root'));
+ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 
 // const currentUser = firebase.auth().currentUser()
 firebase.auth().onAuthStateChanged((user) => {

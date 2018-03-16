@@ -1,0 +1,31 @@
+.page-header {
+ background: #f7f7f7f7;
+//  margin-bottom: $l-size;
+ padding: $l-size 0;   
+}
+
+.page-header__actions {
+    margin-top: 0;
+    // margin-bottom: 0;
+    @media (min-width: $desktop-breakpoint) {
+        margin-top: $m-size;
+    }
+}
+.page-header__title {
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin-bottom: $s-size;
+    span {
+        font-weight: 600;
+    }
+    @media (min-width: $desktop-breakpoint) {
+        font-size: 3rem;
+        font-weight: 300;
+        margin: 0;   
+        span {
+        font-weight: 600;
+     }
+    }
+    
+    
+}
