@@ -43,7 +43,11 @@ ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 // const currentUser = firebase.auth().currentUser()
 firebase.auth().onAuthStateChanged((user) => {
     if(user != null) {
-        store.dispatch(login(user.uid));
+        user.providerData.forEach(({photoURL, displayName, email}) => {
+            console.log(email)
+            store.dispatch(login(user.uid, photoURL, displayName, email));
+        })
+        
         // console.log(user.uid)
         store.dispatch(startSetExpenses()).then(() => {
         isRendered()

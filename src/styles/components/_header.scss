@@ -15,3 +15,48 @@
         margin: 0;
     }
 }
+
+.user-image-email {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin: 0;
+    cursor: pointer;
+    color: white;
+    font-size: $s-size;
+    
+}
+.user-image {
+    border-radius: 3rem;
+    width: 50px;
+    height: 50px;
+    
+    // padding: $s-size;
+    border: 1px solid white 50%;
+}
+
+.uploaded-image {
+    @extend .user-image;
+    border-radius: none;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+.uploaded-image:hover {
+    cursor: pointer;
+}
+// .user-image:hover {
+//     display: flex;
+//     flex-direction: column;
+//     align-content: center;
+//     align-items: center;
+//     margin: 0;
+//     cursor: pointer;
+//     color: white;
+//     font-size: $s-size;
+// }
+.user-email {
+    color: white;
+    font-size: $s-size;
+    fill-opacity: 10;
+}

@@ -1,8 +1,11 @@
 import { firebase, googleAuthProvider } from '../firebase/firebase';
 
-export const login = (uid) => ({
+export const login = (uid, photoURL, displayName, email) => ({
     type: 'LOGIN',
-    uid
+    uid,
+    photoURL,
+    displayName,
+    email
 });
 
 export const startLogin = () => {
@@ -11,6 +14,7 @@ export const startLogin = () => {
                 user.providerData.forEach((profile) => {
                     console.log("Sign-In Provider: " + profile.providerId);
                     console.log("Display Name: " + profile.displayName);
+                    console.log("  Email: " + profile.email);
                     alert(`${profile.displayName} ${profile.email} is logged in`)
                 })
             } else {

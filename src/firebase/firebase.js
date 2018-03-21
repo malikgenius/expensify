@@ -5,7 +5,7 @@ const config = {
     authDomain: "maliks-expensifyapp.firebaseapp.com",
     databaseURL: "https://maliks-expensifyapp.firebaseio.com",
     projectId: "maliks-expensifyapp",
-    storageBucket: "",
+    storageBucket: "maliks-expensifyapp.appspot.com",
     messagingSenderId: "829180035827"
   };
   firebase.initializeApp(config);

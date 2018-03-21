@@ -18,3 +18,9 @@
 .button--secondary {
     background: #888888;
 }
+
+.imageupload {
+    @extend .button;
+    background: $grey;
+    border-radius: 5px;
+}
