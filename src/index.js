@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import registerServiceWorkder from './registerServiceWorker'
+// eslint-disable-next-line
+import Modal from 'react-modal';
 import AppRouter, { history }from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetExpenses } from './actions/expenses';
@@ -38,6 +41,7 @@ const isRendered = () => {
         hasRendered = true;
     }
 }
+
 ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 
 // const currentUser = firebase.auth().currentUser()
@@ -64,6 +68,7 @@ firebase.auth().onAuthStateChanged((user) => {
     }
 });
 
+registerServiceWorkder();
 // firebase.auth().onAuthStateChanged((user) => {
 //     if (user != null) {
 //         user.providerData.forEach(function (profile) {

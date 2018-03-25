@@ -8,15 +8,19 @@
     display: inline-block;
     text-decoration: none;
     line-height: 1;
-
 }
 .button--link {
-    background: none;
-    
+    background: none;   
 }
 
 .button--secondary {
     background: #888888;
+}
+
+.button__modal {
+    @extend .button;
+    margin-right: 1rem;
+    background: $blue;
 }
 
 .imageupload {

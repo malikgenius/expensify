@@ -75,13 +75,14 @@ export class AddExpenseForm extends Component {
       };
       showImage = () => {
           return (
+              // eslint-disable-next-line
             <a  href={this.state.imageURL} target="_blank"></a>
           );
           
       }
       deleteImage = () => {
           const imageURL = this.state.imageURL;
-          const avatar = this.state.avatar;
+        //   const avatar = this.state.avatar;
           const storage = firebase.storage();
           storage.ref().child(`${imageURL}`).delete()
           .then(() => {
@@ -158,7 +159,8 @@ export class AddExpenseForm extends Component {
                 </label>
                 <div>
                     {/* avatar file name display on screen */}
-                    {this.state.imageURL ? <a href={this.state.imageURL} target="_blank"><img className="uploaded-image" onClick={this.showImage} src={this.state.imageURL}/></a>: ''}
+                    
+                    {this.state.imageURL ? <a href={this.state.imageURL} target="_blank"><img alt="" className="uploaded-image" onClick={this.showImage} src={this.state.imageURL}/></a>: ''}
                 </div>
                 
                 </div>

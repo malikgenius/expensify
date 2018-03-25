@@ -9,6 +9,7 @@ export default (expenses, filters) => {
     const textMatch = expense.description.toLowerCase().includes(filters.text.toLowerCase());
 
     return startDateMatch && endDateMatch && textMatch;
+    // eslint-disable-next-line
   }).sort((a, b) =>  {
     if (filters.sortBy === 'date') {
       return a.createdAt < b.createdAt ? 1 : -1;
