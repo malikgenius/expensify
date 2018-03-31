@@ -1,12 +1,12 @@
 import * as firebase from 'firebase';
 
 const config = {
-    apiKey: "AIzaSyBVUJsUFQFPGcT2Vx_vwzNige0IZVMrA08",
-    authDomain: "maliks-expensifyapp.firebaseapp.com",
-    databaseURL: "https://maliks-expensifyapp.firebaseio.com",
-    projectId: "maliks-expensifyapp",
-    storageBucket: "maliks-expensifyapp.appspot.com",
-    messagingSenderId: "829180035827"
+    apiKey: "",
+    authDomain: "",
+    databaseURL: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: ""
   };
   firebase.initializeApp(config);
 const database = firebase.database();
