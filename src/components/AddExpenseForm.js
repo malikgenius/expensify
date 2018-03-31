@@ -139,6 +139,7 @@ export class AddExpenseForm extends Component {
                     className="text-area"
                     placeholder="Add a note for your expense (optional)"
                     onChange={this.onNoteChanged}
+                    value={this.state.note}
                 >
                 </textarea>
                 <div >

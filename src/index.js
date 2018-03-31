@@ -48,7 +48,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById('root'));
 firebase.auth().onAuthStateChanged((user) => {
     if(user != null) {
         user.providerData.forEach(({photoURL, displayName, email}) => {
-            console.log(email)
+            // console.log(email)
             store.dispatch(login(user.uid, photoURL, displayName, email));
         })
         

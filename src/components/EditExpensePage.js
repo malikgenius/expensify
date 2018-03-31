@@ -1,5 +1,10 @@
 import React from 'react';
+import moment from 'moment';
+import numeral from 'numeral';
+import { Link } from 'react-router-dom'
 import AddExpenseForm from './AddExpenseForm';
+// eslint-disable-next-line
+import SingleExpensePage from './SingleExpensePage'
 import { connect } from 'react-redux';
 import { startEditExpense } from '../actions/expenses';
 // eslint-disable-next-line
@@ -7,8 +12,10 @@ import { startRemoveExpense} from '../actions/expenses';
 import ModalDeleteExpense from './ModalDeleteExpense';
 
 class EditExpensePage extends React.Component  {
+  
   constructor(props) {
     super(props)
+    console.log(props)
     this.state = {
       showModal: undefined,
     }
@@ -27,32 +34,50 @@ class EditExpensePage extends React.Component  {
   }
   render() {
     return (
-      <div>
-        <div className="page-header">
-          <div className="content-container">
-           <h1>Edit Expense </h1>
+      <div className="content-container">
+            <div className="list-header">
+                <div className="show-for-mobile">Expenses</div>
+                <div className="show-for-desktop">Expense</div>
+                <div className="show-for-desktop">Amount</div>
+            </div>
+            <div className="list-body">
+            <div className="list-item">
+              <div >
+                <h3 className="list-item__title">
+                            {this.props.expense.description}
+                </h3>
+                <span className="list-item__sub-title">
+                    {`${moment(this.props.expense.createdAt).format('Do MMMM YYYY hh:mma')}`}
+                </span>
+                <div>
+                  <p className="list-item__data">
+                        {numeral(this.props.expense.amount).format('$0,0.00')}
+                  </p>
+                </div>
+                <div>
+                  <p>
+                  {this.props.expense.note}
+                  </p>
+                  
+                </div>
+              </div>
+              <div>
+                    {/* avatar file name display on screen */}
+                    
+                    {this.props.expense.imageURL ? <a href={this.props.expense.imageURL} target="_blank"><img alt="" className="uploaded-image"  src={this.props.expense.imageURL}/></a>: ''}
+                </div>
+                
+            </div>
+            <Link className="list-item" to={`/editform/${this.props.expense.id}`}>
+            <button className="button">Edit Expense</button>
+            </Link>
+            
           </div>
-          </div>
-          <div className="content-container">
-            <AddExpenseForm 
-              expense={this.props.expense}
-              onSubmit={(expense) => {
-                this.props.dispatch(startEditExpense(this.props.expense.id,expense))
-                this.props.history.push('/dashboard')
-              }}
-            />
-            <button className="button button--secondary" 
-                onClick={this.isModalOpen}
-            >
-              remove expense
-            </button>
-            <ModalDeleteExpense 
-              showModal={this.state.showModal}
-              onModalClose={this.onModalClose} 
-              {...this.props}
-            />
-          </div>
-      </div>
+        </div>
+
+
+
+      
       
     );
   };
